@@ -2,3 +2,4 @@
 log.txt
 .arquivosReferencia/
 .deprecated/
+.__pycache_/
