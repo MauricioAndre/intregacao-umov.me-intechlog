@@ -1,0 +1,88 @@
+2023-08-28 15:13:41 - Level: INFO - Servico: SisUmovme.umovmeEntregas.servico.orquestrador.recebeColetaAvacorp:recebeColetaAvacorp ->  SisUmovme Recebeu Coleta
+doc:
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="coleta" javaclass="com.wm.util.Values">
+    <value name="chaveDocumentos">1-1-1-2-1-1-10825</value>
+    <value name="cnpjRemetente">96.662.168/0169-92</value>
+    <null name="cnpjTransportadora"/>
+    <null name="cpfMotorista"/>
+    <value name="numeroPedidoColeta">10825</value>
+    <value name="seriePedidoColeta">1</value>
+    <value name="dataColeta">2023-08-28</value>
+    <value name="horaColeta">17:00</value>
+    <value name="horaInicialClienteColetar">07:00</value>
+    <value name="horaFinalClienteColetar">11:00</value>
+    <value name="especieMercadoria">VOLS</value>
+    <value name="quantidade">0,00</value>
+    <value name="razaoDestinatario">DREBES &amp; CIA LTDA - FIL 900</value>
+    <value name="endercoDestinatario">ROD RS 118</value>
+    <value name="numeroDestinatario">12701</value>
+    <value name="complementoDestinatario">KM 11</value>
+    <value name="cidadeDestinatario">GRAVATAI</value>
+    <value name="ufDestinatario">RS</value>
+    <value name="bairroDestinatario">NEOPOLIS</value>
+    <null name="trajeto"/>
+    <null name="dataEntregaPrevista"/>
+    <null name="horaEntregaPrevista"/>
+    <value name="naturezaMercadoria">DIVERSOS</value>
+    <value name="metragemCubica">0,000</value>
+    <value name="peso">0,000</value>
+    <value name="pesoLiquido">0,000</value>
+    <value name="pesoCubado">0,000</value>
+    <value name="valorMercadoria">0,00</value>
+    <value name="qtdPallets">0</value>
+    <value name="qtdAjudantes">0</value>
+    <value name="nomeEmbarcador">DREBES &amp; CIA LTDA - FIL 900</value>
+    <null name="veiculoColeta"/>
+    <value name="codigoEmbarcador">96.662.168/0169-92</value>
+  </record>
+</Values>
+
+2023-08-28 15:13:41 - Level: INFO - Servico: SisUmovme.umovmeEntregas.servico.orquestrador.recebeColetaAvacorp:recebeColetaAvacorp ->  Json / XML
+doc:
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="xmlUmovme">&lt;?xml version="1.0"?&gt;
+&lt;schedule&gt;
+  &lt;scheduleType&gt;
+    &lt;alternativeIdentifier&gt;pedido_coleta&lt;/alternativeIdentifier&gt;
+  &lt;/scheduleType&gt;
+  &lt;serviceLocal&gt;
+    &lt;alternativeIdentifier&gt;96.662.168/0169-92&lt;/alternativeIdentifier&gt;
+  &lt;/serviceLocal&gt;
+  &lt;active&gt;true&lt;/active&gt;
+  &lt;activitiesOrigin&gt;7&lt;/activitiesOrigin&gt;
+  &lt;sendNotification&gt;false&lt;/sendNotification&gt;
+  &lt;team&gt;
+    &lt;alternativeIdentifier&gt;26.524.604&lt;/alternativeIdentifier&gt;
+  &lt;/team&gt;
+  &lt;teamExecution&gt;0&lt;/teamExecution&gt;
+  &lt;alternativeIdentifier&gt;1-1-1-2-1-1-10825&lt;/alternativeIdentifier&gt;
+  &lt;date&gt;2023-08-28&lt;/date&gt;
+  &lt;hour&gt;17:00&lt;/hour&gt;
+  &lt;observation&gt;Coleta: 1 / 10825
+Dados da Coleta:
+0,00 VOLS Peso: 0,000
+Destino: GRAVATAI / RS
+Programado: %docMapColetaPraxioEntrada/entradaPraxio/coleta/dataEntregaPrevista% %docMapColetaPraxioEntrada/entradaPraxio/coleta/horaEntregaPrevista%
+&lt;/observation&gt;
+  &lt;situation&gt;
+    &lt;id&gt;20&lt;/id&gt;
+  &lt;/situation&gt;
+  &lt;customField1&gt;1-1-1-2-1-1-10825&lt;/customField1&gt;
+  &lt;customField2&gt;&lt;![CDATA[DREBES &amp; CIA LTDA - FIL 900]]&gt;&lt;/customField2&gt;
+  &lt;customFields&gt;
+    &lt;tar_veiculo&gt;
+      &lt;alternativeIdentifier&gt;&lt;/alternativeIdentifier&gt;
+    &lt;/tar_veiculo&gt;
+    &lt;tar_embarcador&gt;
+      &lt;alternativeIdentifier&gt;96.662.168&lt;/alternativeIdentifier&gt;
+    &lt;/tar_embarcador&gt;
+    &lt;callback&gt;&lt;![CDATA[https://apilebes.com.br/gateway/lbUmoveApi/1.0/resourceCallbackGenerico?id=1-1-1-2-1-1-10825&amp;tipo=pedidoColeta]]&gt;&lt;/callback&gt;
+  &lt;/customFields&gt;
+&lt;/schedule&gt;</value>
+  <value name="tipoTransacao">pedidoColeta</value>
+</Values>

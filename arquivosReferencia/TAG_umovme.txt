@@ -1,0 +1,3 @@
+customfield1 = N° coleta
+
+customfield2 = Raiz do remetente

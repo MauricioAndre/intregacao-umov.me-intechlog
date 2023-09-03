@@ -1,0 +1,31 @@
+{
+    "programacaoEmbarque": {
+        "chaveDocumentos": "1-1-1-56721",
+        "numeroPedidoColeta": "10818",
+        "seriePedidoColeta": "1",
+        "chaveDocumentosColeta": "1-1-1-2-1-1-10818",
+        "numeroProgramacaoEmbarque": "56721",
+        "diferenciadorProgramacaoEmbarque": "1",
+        "cpfMotorista": "015.264.200-58",
+        "placaVeiculo": "IKJ3D28",
+        "cnpjTransportadora": "27.913.322/0001-88",
+        "locaisEntrega": [
+            {
+                "destinatarioCnpj": "96.662.168/0169-92",
+                "dataInicioEntrega": "2023-08-29",
+                "horaInicioEntrega": "07:00",
+                "dataFimEntrega": "2023-08-29",
+                "horaFimEntrega": "11:00",
+                "quantida": "828,00",
+                "peso": "24925,50",
+                "cnpjRemetente": "72.144.066",
+                "ctes": [
+                    {
+                        "descricaoCte": "CT-e 365645",
+                        "chaveCte": "43230826524604000120570010003656451063656450"
+                    }
+                ]
+            }
+        ]
+    }
+}
