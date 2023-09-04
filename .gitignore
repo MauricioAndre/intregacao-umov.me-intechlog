@@ -1,5 +1,5 @@
 .env
 log.txt
-.arquivosReferencia/
-.deprecated/
-.__pycache_/
+arquivosReferencia
+deprecated
+__pycache_
