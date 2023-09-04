@@ -261,7 +261,7 @@ SELECT 'entrega'::TEXT AS scheduleType
 
  
 
-        ,40::integer AS situation
+        ,30::integer AS situation
 
  
 
