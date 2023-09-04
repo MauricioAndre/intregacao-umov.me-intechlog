@@ -16,10 +16,9 @@ def geraxmlbase(schedule,item):
 
 #print(geraxmlbase(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1))
 
-def geraxmlretorno(response):
+def geraxmlretorno(r):
  complemento=""
- for r in response:
-    complemento+=geraxmlbase(r[2],r[1])
+ complemento+=geraxmlbase(r[2],r[1])
 
  saida= f"""data=<scheduleItems>{complemento}</scheduleItems>"""
  #print(saida)

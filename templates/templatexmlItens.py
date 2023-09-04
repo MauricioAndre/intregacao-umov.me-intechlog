@@ -16,10 +16,9 @@ def geraxmlbase(description,alternativeIdentifier):
 
 #print(geraxmlbase(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1))
 
-def geraxmlretorno(response):
+def geraxmlretorno(r):
  complemento=""
- for r in response:
-    complemento+=geraxmlbase(r[0],r[1])
+ complemento+=geraxmlbase(r[0],r[1])
 
  saida= f"""data=<items>{complemento}</items>"""
  #print(saida)
