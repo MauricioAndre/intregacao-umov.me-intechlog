@@ -7,11 +7,24 @@ scheduletype,serviceLocal,team,teamExecution,agent,
 
  
 
-alternativeIdentifier,dateA,TO_CHAR(hourA,'HH:MI')AS hourA,executionForecastEndDate,
+alternativeIdentifier,dateA,
 
- 
 
-TO_CHAR(executionForecastEndTime,'HH:MI')AS executionForecastEndTime,observation,situation,customfield1,customfield2,
+
+CASE WHEN (TO_CHAR(hourA,'HH24:MI')) IS NULL
+THEN '00:00' else (TO_CHAR(hourA,'HH24:MI'))   END AS hourA,
+
+
+executionForecastEndDate,
+
+
+CASE WHEN (TO_CHAR(executionForecastEndTime,'HH24:MI')) IS NULL
+THEN '00:00' else (TO_CHAR(executionForecastEndTime,'HH24:MI')) END AS executionForecastEndTime,
+
+
+
+
+observation,situation,customfield1,customfield2,
 
  
 
@@ -91,15 +104,15 @@ SELECT 'entrega'::TEXT AS scheduleType
 
  
 
- 
+       ,COALESCE(programacaoembarque.dtprevisaosaidaviagem, programacaoembarque.dtemissao)::DATE AS dateA
 
-       ,programacaoembarque.dtemissao::DATE AS dateA
-
- 
+      
 
  
 
-       ,(CASE EXTRACT( DOW FROM programacaoembarque.dtemissao)
+ 
+
+       ,(CASE EXTRACT( DOW FROM coalesce (programacaoembarque.dtprevisaosaidaviagem, programacaoembarque.dtemissao))
 
  
 
@@ -152,14 +165,14 @@ SELECT 'entrega'::TEXT AS scheduleType
  
 
  
-
-       ,programacaoembarque.dtemissao::DATE AS executionForecastEndDate
-
- 
+       ,COALESCE(programacaoembarque.dtprevisaosaidaviagem, programacaoembarque.dtemissao)::DATE AS executionForecastEndDate
+       
 
  
 
-       ,(CASE EXTRACT( DOW FROM programacaoembarque.dtemissao)
+ 
+
+       ,(CASE EXTRACT( DOW FROM coalesce (programacaoembarque.dtprevisaosaidaviagem, programacaoembarque.dtemissao))
 
  
 
@@ -375,18 +388,6 @@ LEFT JOIN programacaoembarque_composicao
 
  
 
-LEFT JOIN cadastro_vinculo_clienteapoiologistico
-
- 
-
- 
-
-    ON programacaoembarque_composicao.cnpjcpfcodigoclientecoletaentrega = cadastro_vinculo_clienteapoiologistico.cnpjcpfcodigo
-
- 
-
- 
-
 LEFT JOIN conhecimento
 
  
@@ -432,6 +433,12 @@ LEFT JOIN conhecimento
     AND programacaoembarque_composicao.numerodocumento = conhecimento.numero
 
  
+ 
+ LEFT JOIN cadastro_vinculo_clienteapoiologistico
+
+ 
+
+    ON conhecimento.destinatario = cadastro_vinculo_clienteapoiologistico.cnpjcpfcodigo
 
  
 
@@ -449,7 +456,7 @@ LEFT JOIN conhecimento
 
 ) as base
 
- where base.houra is not null
+
 
 group by scheduletype,serviceLocal,team,teamExecution,agent,
 
@@ -508,7 +515,7 @@ SELECT   'notas_fiscais'::TEXT AS subGroup
 
                ||'-'||programacaoembarque.numero
 
-               ||'-'||FNC_FORMATA_CNPJCPFCOD(programacaoembarque_composicao.cnpjcpfcodigoclientecoletaentrega)
+               ||'-'||FNC_FORMATA_CNPJCPFCOD(conhecimento.destinatario)
 
                ||'-'||SUBSTRING(FNC_FORMATA_CNPJCPFCOD(programacaoembarque_composicao.cnpjcpfcodigoemissordocumento),1,10)) AS schedule
 
@@ -549,17 +556,6 @@ LEFT JOIN programacaoembarque_composicao
     AND programacaoembarque.numero = programacaoembarque_composicao.numero
 
  
-
- 
-
-LEFT JOIN cadastro_vinculo_clienteapoiologistico
-
- 
-
- 
-
-    ON programacaoembarque_composicao.cnpjcpfcodigoclientecoletaentrega = cadastro_vinculo_clienteapoiologistico.cnpjcpfcodigo
-
  
 
  
@@ -607,6 +603,16 @@ LEFT JOIN conhecimento
  
 
     AND programacaoembarque_composicao.numerodocumento = conhecimento.numero
+
+    
+    
+LEFT JOIN cadastro_vinculo_clienteapoiologistico
+
+ 
+
+ 
+
+    ON conhecimento.destinatario = cadastro_vinculo_clienteapoiologistico.cnpjcpfcodigo
 
  
 
